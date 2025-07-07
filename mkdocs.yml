@@ -8,7 +8,12 @@ theme:
     - navigation.top
 
 markdown_extensions:
+  - pymdownx.arithmatex
   - pymdownx.superfences
+
+extra_javascript:
+  - javascripts/mathjax-config.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 
 plugins:
   - i18n:
@@ -21,7 +26,10 @@ plugins:
         - locale: zh
           name: 中文
           build: true
+  - mkdocs_matplotlib
 
 nav:
-  - EIP-7745 Log index:
+  - index.md
+  - Log reform:
     - event-logs.md
+    - logs-bloom.md
