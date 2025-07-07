@@ -2,6 +2,10 @@ site_name: Pureth
 
 theme:
   name: material
+  features:
+    - navigation.expand
+    - navigation.tabs
+    - navigation.top
 
 markdown_extensions:
   - pymdownx.superfences
@@ -17,3 +21,7 @@ plugins:
         - locale: zh
           name: 中文
           build: true
+
+nav:
+  - EIP-7745 Log index:
+    - event-logs.md

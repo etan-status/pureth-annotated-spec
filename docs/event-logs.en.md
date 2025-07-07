@@ -1,6 +1,4 @@
-# EIP-7745 Log index
-
-## Logs
+# Event logs
 
 Smart contracts can emit events when certain operations happen, e.g., an [ERC-20 token transfer](https://eips.ethereum.org/EIPS/eip-20#events). In Solidity, the `event` and `emit` keywords are used for this purpose. The compiler then transforms `emit` instances to one of the `LOG*` [opcodes](https://ethereum.org/en/developers/docs/evm/opcodes/): `LOG0`, `LOG1`, `LOG2`, `LOG3`, or `LOG4`. These opcodes solely differ by the number of `indexed` topics. To enable interoperability between smart contracts written in different programming languages or compiled using different versions, the [smart contract ABI specification](https://docs.soliditylang.org/en/latest/abi-spec.html#events) defines how events should be mapped to `LOG*` opcodes.
 
