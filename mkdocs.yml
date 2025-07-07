@@ -3,6 +3,9 @@ site_name: Pureth
 theme:
   name: material
 
+markdown_extensions:
+  - pymdownx.superfences
+
 plugins:
   - i18n:
       docs_structure: suffix
