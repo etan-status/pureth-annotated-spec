@@ -33,3 +33,4 @@ nav:
   - Log reform:
     - event-logs.md
     - logs-bloom.md
+    - log-value-index.md
