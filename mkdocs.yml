@@ -1,8 +1,11 @@
 site_name: Pureth
+repo_url: https://github.com/etan-status/pureth-annotated-spec/
+edit_uri: edit/main/docs/
 
 theme:
   name: material
   features:
+    - content.action.edit
     - navigation.expand
     - navigation.tabs
     - navigation.top
