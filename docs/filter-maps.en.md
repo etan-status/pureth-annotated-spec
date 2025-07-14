@@ -31,7 +31,7 @@ class LogIndex(Container):
 
 ## Filter rows
 
-Within each of the rows of the filter map, one can visualize that the full [`MAP_WIDTH`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) is further subdivided into [`VALUES_PER_MAP`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) groups of 256 bits (32 bytes) each. For each _log value_ index, the corresponding bit is set in the corresponding group, i.e., _log value_ index 0 sets a bit within `0 ..< 256`, _log value_ index 1 sets a bit within `256 ..< 512`, and so on. Therefore, there cannot be any collisions where a bit is set multiple times.
+Within each of the rows of the filter map, one can visualize that the full [`MAP_WIDTH`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) is further subdivided into [`VALUES_PER_MAP`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) groups of 8 bits (1 byte) each. For each _log value_ index, the corresponding bit is set in the corresponding group, i.e., _log value_ index 0 sets a bit within `0 ..< 256`, _log value_ index 1 sets a bit within `256 ..< 512`, and so on. Therefore, there cannot be any collisions where a bit is set multiple times.
 
 The [_log value_](./log-value-index.md#log-values) itself, namely the `address` or an individual `topic`, is then used to determine the exact bit position within the group. Vice versa, this means that if a different bit is set than the one pertaining to any given query that the corresponding [log entry](./log-value-index.md#log-entries) is irrelevant and, hence, does not have to be sent.
 
@@ -62,7 +62,7 @@ def topic_value(topic):
 
 ## Row mapping
 
-A filter row spanning [`VALUES_PER_MAP`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) 32-byte entries entries uses 2 MB, which is still too much data, especially since it is also required to send for all negative search results (to prove completeness). Therefore, each filter map consists of [`MAP_HEIGHT`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) filter rows; each _log event_ only sets a bit in one of them.
+A filter row spanning [`VALUES_PER_MAP`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) still uses 64 KB, which is still a lot of data for queries spanning a large number of blocks, especially since it is also required to send for all negative search results (to prove completeness). Therefore, each filter map consists of [`MAP_HEIGHT`](https://eips.ethereum.org/EIPS/eip-7745#proposed-constants) filter rows; each _log event_ only sets a bit in one of them.
 
 To enable efficient proving, the row assignment should be somewhat stable: if there are multiple entries matching a query, they should all be in the same row. To avoid the collision problem when a popular event such as the [ERC-20 token transfer](https://eips.ethereum.org/EIPS/eip-20#events) is assigned to the same row, a maximum length is also introduced after which the row assignment is changed. The [_mapping layer_ index](https://eips.ethereum.org/EIPS/eip-7745#epochs-and-mapping-layers) indicates the number of times that the assignment was changed, and the maximum length increases exponentially on every reassignment until a maximum.
 
