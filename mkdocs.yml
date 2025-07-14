@@ -37,3 +37,4 @@ nav:
     - event-logs.md
     - logs-bloom.md
     - log-value-index.md
+    - filter-maps.md

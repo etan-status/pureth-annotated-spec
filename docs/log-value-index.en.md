@@ -1,6 +1,6 @@
 # Log value index (EIP-7745)
 
-[EIP-7745](https://eips.ethereum.org/EIPS/eip-7745) aims to replace the [Bloom filter](./logs-bloom.en.md) for [smart contract event logs](./event-logs.en.md) with a mechanism that efficiently supports queries with:
+[EIP-7745](https://eips.ethereum.org/EIPS/eip-7745) aims to replace the [Bloom filter](./logs-bloom.md) for [smart contract event logs](./event-logs.md) with a mechanism that efficiently supports queries with:
 
 - Correctness proofs, i.e., all logs are part of the canonical chain
 - Completeness proofs, i.e., no log is missing from the response
@@ -109,11 +109,22 @@ class BlockDelimiterEntry(Container):
 
 The _**block delimiter for block 2**_ is only inserted once processing of block 3 starts.
 
-## Verification
+## Updating the log index
 
-To enable verification by clients, the block header is extended with the `log_index_root`, which is computed from the `hash_tree_root` over the entire `LogIndex` structure. Any log Merkle proof describes a subset of the data that was hashed into the `log_index_root`.
+To enable verification by clients, the block header is extended with the `log_index_root`, which is computed from the `hash_tree_root` over the entire `LogIndex` structure. Any log Merkle proof describes a subset of the data that was hashed into the `log_index_root`. From [EIP-7745](https://eips.ethereum.org/EIPS/eip-7745#updating-the-log-index):
 
 ```python
+def add_log_value(log_index, log_value):
+    # ... Stubbed for the purpose of this document
+    
+    log_index.next_index += 1
+
+def address_value(address):
+    return sha2(address)
+
+def topic_value(topic):
+    return sha2(topic)
+
 # Add all log values emitted in the block to the log index;
 # should be called even if the block is empty
 def add_block_logs(log_index, block):
@@ -123,7 +134,7 @@ def add_block_logs(log_index, block):
             block_hash = block.parent_hash,
             block_number = block.number - 1,
             timestamp = block.parent.timestamp,
-            dummy_value = 2**64-1,
+            dummy_value = 2**64 - 1,
         )
         block_delimiter_entry = BlockDelimiterEntry(
             meta = block_delimiter_meta,
@@ -154,11 +165,9 @@ def add_block_logs(log_index, block):
                 VALUES_PER_MAP * MAPS_PER_EPOCH,
             )
             log_index.epochs[epoch].log_entries[epoch_index] = log_entry
-            log_index.next_index += 1
+            add_log_value(log_index, address_value(log.address))
             for topic in log.topics:
-                log_index.next_index += 1
+                add_log_value(log_index, topic_value(topic))
 
     block.log_index_root = hash_tree_root(log_index)
 ```
-
-This is a simplified version of the [EIP-7745 logic](https://eips.ethereum.org/EIPS/eip-7745#updating-the-log-index) which focuses solely on the _log value_ index.

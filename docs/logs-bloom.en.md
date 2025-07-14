@@ -83,4 +83,4 @@ plt.ylabel("False positive rate [%]")
 plt.grid(True)
 ```
 
-At a conservative [100 transactions per block](https://etherscan.io/chart/tx), each emitting 2 logs with a unique address and 3 indexed topics, the false positive rate is already at ~33%. To enable Ethereum's [scale L1 strategic initiative](https://protocol.ethereum.foundation/strategic-initiatives), the logs Bloom filter must be replaced.
+At a conservative [100 transactions per block](https://etherscan.io/chart/tx), each emitting 2 logs with a unique address and 3 indexed topics, the false positive rate is already at ~33%. To enable Ethereum's [scale L1 strategic initiative](https://protocol.ethereum.foundation/strategic-initiatives), the logs Bloom filter must be [replaced](https://eips.ethereum.org/EIPS/eip-7668).
