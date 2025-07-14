@@ -38,3 +38,5 @@ nav:
     - logs-bloom.md
     - log-value-index.md
     - filter-maps.md
+    - log-proofs.md
+    - implementations-7745.md
