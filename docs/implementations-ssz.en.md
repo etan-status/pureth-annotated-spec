@@ -11,7 +11,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | Go | [karalabe/ssz](https://github.com/karalabe/ssz) | _open_ | |
 | Go | [methodical-ssz](https://github.com/OffchainLabs/methodical-ssz) | _open_ | |
 | Java | [Teku](https://github.com/Consensys/teku/tree/master/infrastructure/ssz) | _open_ | |
-| Nim | [nim-ssz-serialization](https://github.com/status-im/nim-ssz-serialization) | [@etan-status](https://github.com/etan-status) | 🚧 |
+| Nim | [nim-ssz-serialization](https://github.com/status-im/nim-ssz-serialization) | [@etan-status](https://github.com/etan-status) | 🚧 `ProgressiveList` only |
 | Python | [remerkleable](https://github.com/ethereum/remerkleable) | [@etan-status](https://github.com/etan-status) | 🚧 `ProgressiveList` only |
 | Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | _open_ | |
 | Rust | [Grandine](https://github.com/grandinetech/grandine/tree/develop/ssz) | _open_ | |
