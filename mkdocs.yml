@@ -33,6 +33,8 @@ plugins:
 
 nav:
   - index.md
+  - SSZ:
+    - implementations-ssz.md
   - Log reform:
     - event-logs.md
     - logs-bloom.md
