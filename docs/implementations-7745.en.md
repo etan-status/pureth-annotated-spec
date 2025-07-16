@@ -13,4 +13,4 @@ The following table lists current implementation efforts. Note that implementati
 
 ## SSZ ProgressiveList
 
-If [EIP-7916 ProgressiveList](https://eips.ethereum.org/EIPS/eip-7916) is unavailable, use `List[type, 999999999]` as a temporary placeholder to get unblocked. Once `ProgressiveList` is implemented in the library, the type can be switched easily.
+If [EIP-7916 ProgressiveList](https://eips.ethereum.org/EIPS/eip-7916) is unavailable in the underlying [SSZ library](./implementations-ssz.en.md), use `List[type, 999999999]` as a temporary placeholder to get unblocked. Once `ProgressiveList` is implemented in the library, the type can be switched easily.
