@@ -123,4 +123,4 @@ def add_log_value(log_index, log_value):
     log_index.next_index += 1
 ```
 
-This replaces the [stub](./log-value-index.en.md#updating-the-log-index) from the [_log value_ index](./log-value-index.md) section.
+This replaces the [stub](./log-value-index.md#updating-the-log-index) from the [_log value_ index](./log-value-index.md) section.

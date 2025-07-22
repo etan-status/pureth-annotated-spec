@@ -32,7 +32,9 @@ plugins:
   - mkdocs_matplotlib
 
 nav:
-  - index.md
+  - Pureth:
+    - index.md
+    - meetings.md
   - SSZ:
     - implementations-ssz.md
   - Log reform:
