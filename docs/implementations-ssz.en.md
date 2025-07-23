@@ -2,7 +2,7 @@
 
 The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916) / [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) implementation efforts. Note that implementations are not complete, and specifications may still change.
 
-| Language | Library | Contact | Notes |
+| Language | Library | Implementer | Notes |
 | - | - | - | - |
 | C# | [Nethermind](https://github.com/NethermindEth/nethermind/tree/master/src/Nethermind/Nethermind.Serialization.Ssz) | _open_ | |
 | Go | [dynssz](https://github.com/pk910/dynamic-ssz) | _open_ | |

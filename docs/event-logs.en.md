@@ -36,9 +36,7 @@ can be queried using:
 
 ```json
 curl "https://docs-demo.quiknode.pro" \
-    -X POST \
-    -H "Content-Type: application/json" \
-    --data @- <<EOF | jq .
+    -X POST -H "Content-Type: application/json" --data @- <<EOF | jq .
 {
     "id": 1,
     "jsonrpc": "2.0",
