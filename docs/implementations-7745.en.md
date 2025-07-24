@@ -130,7 +130,7 @@ Block processing may be triggered by all of [`engine_newPayloadV4`](https://gith
 
 Kurtosis can be used to locally simulate a network with the participating clients. It can be set up by following the [installation instructions](https://docs.kurtosis.com/install) and is configured using a [YAML schema](https://github.com/etan-status/ethereum-package?tab=readme-ov-file#configuration).
 
-Save the following config as `~/Downloads/network_params_pureth.yaml`.
+Save the following config as `~/Downloads/network_params_pureth.yaml`. Note that this uses a [fork](https://github.com/etan-status/ethereum-package) of [ethpandaops/ethereum-package](https://github.com/ethpandaops/ethereum-package) to enable EIP-7745 testing.
 
 ```yaml
 participants_matrix:
@@ -143,7 +143,7 @@ participants_matrix:
       el_image: ethpandaops/reth:eip-7745-m0
   cl:
     - cl_type: nimbus
-      cl_image: ethpandaops/nimbus-eth2:pureth-minimal
+      cl_image: ethpandaops/nimbus-eth2:eip-7745-m0-minimal
 
 # global_log_level: debug
 
@@ -162,7 +162,7 @@ spamoor_params:
         throughput: 10
 ```
 
-To interact with the network, first start [Docker](https://docker.com), and then use the following commands. Note that this uses a [fork](https://github.com/etan-status/ethereum-package) of [ethpandaops/ethereum-package](https://github.com/ethpandaops/ethereum-package) to enable EIP-7745 testing.
+To interact with the network, first start [Orbstack](https://orbstack.dev), and then use the following commands. [Docker](https://docker.com) has a [known issue](https://github.com/ethpandaops/ethereum-package/issues/1127) with Erigon, if the network fails to start up, exit Docker and start Orbstack, then try again.
 
 | Action | Command |
 | - | - |
@@ -170,8 +170,6 @@ To interact with the network, first start [Docker](https://docker.com), and then
 | Start | `kurtosis run --enclave pureth --image-download always github.com/etan-status/ethereum-package "$(cat ~/Downloads/network_params_pureth.yaml)"` |
 | Ports | `kurtosis enclave inspect pureth` |
 | Logs | `kurtosis service logs pureth -n 999999 -f` |
-
-If the network fails to start, try to stop it again, and then restart Docker before trying again.
 
 To test the RPC, use `kurtosis enclave inspect pureth` to find the real port to which the `rpc` / `ws-rpc` port (8545) is mapped, e.g., if it says `ws-rpc: 8545/tcp -> 127.0.0.1:60147`:
 
