@@ -5,7 +5,7 @@ The following table lists current implementation efforts. Note that implementati
 | Execution client | Implementer | Assistance | Notes |
 | - | - | - | - |
 | Besu | _open_ | | |
-| Erigon | [@DarkLord017](https://github.com/DarkLord017) | _tbd_ | EPF permissionless |
+| Erigon | [@DarkLord017](https://github.com/DarkLord017) | [@Giulio2002](https://github.com/Giulio2002) | EPF permissionless |
 | Geth | [@zsfelfoldi](https://github.com/zsfelfoldi) | | [EIP author](https://eips.ethereum.org/EIPS/eip-7745) |
 | Nethermind | _open_ | | [Log filter PR](https://github.com/NethermindEth/nethermind/pull/8464) (incompatible design) |
 | Nimbus | [@vineetpant](https://github.com/vineetpant), [@RazorClient](https://github.com/RazorClient) | [@advaita-saha](https://github.com/advaita-saha) | [EPF proposal](https://github.com/eth-protocol-fellows/cohort-six/pull/175) |
