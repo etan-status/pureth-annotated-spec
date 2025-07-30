@@ -2,22 +2,16 @@
 
 The following table lists current implementation efforts. Note that implementations are not complete, and specifications may still change.
 
-| Execution client | Implementer | Assistance | Notes |
-| - | - | - | - |
-| Besu | _open_ | | |
-| Erigon | [@DarkLord017](https://github.com/DarkLord017) | [@Giulio2002](https://github.com/Giulio2002) | EPF permissionless |
-| Geth | [@zsfelfoldi](https://github.com/zsfelfoldi) | | [EIP author](https://eips.ethereum.org/EIPS/eip-7745) |
-| Nethermind | _open_ | | [Log filter PR](https://github.com/NethermindEth/nethermind/pull/8464) (incompatible design) |
-| Nimbus | [@vineetpant](https://github.com/vineetpant), [@RazorClient](https://github.com/RazorClient) | [@advaita-saha](https://github.com/advaita-saha) | [EPF proposal](https://github.com/eth-protocol-fellows/cohort-six/pull/175) |
-| Reth | [@18aaddy](https://github.com/18aaddy), [@SkandaBhat](https://github.com/SkandaBhat) | [@mattsse](https://github.com/mattsse) | [EPF proposal](https://github.com/eth-protocol-fellows/cohort-six/pull/207), [Log filter PR](https://github.com/paradigmxyz/reth/issues/16999) |
+| Execution client | Implementer | Assistance | Progress | Notes |
+| - | - | - | - | - |
+| Besu | _open_ | | | |
+| Erigon | [@DarkLord017](https://github.com/DarkLord017) | [@Giulio2002](https://github.com/Giulio2002) | | [EPF proposal](https://github.com/eth-protocol-fellows/cohort-six/pull/214) |
+| Geth | [@zsfelfoldi](https://github.com/zsfelfoldi) | | | [EIP author](https://eips.ethereum.org/EIPS/eip-7745) |
+| Nethermind | _open_ | | | [Log filter PR](https://github.com/NethermindEth/nethermind/pull/8464) (incompatible design) |
+| Nimbus | [@vineetpant](https://github.com/vineetpant), [@RazorClient](https://github.com/RazorClient) | [@advaita-saha](https://github.com/advaita-saha) | | [EPF proposal](https://github.com/eth-protocol-fellows/cohort-six/pull/175) |
+| Reth | [@18aaddy](https://github.com/18aaddy), [@SkandaBhat](https://github.com/SkandaBhat) | [@mattsse](https://github.com/mattsse) | | [EPF proposal](https://github.com/eth-protocol-fellows/cohort-six/pull/207), [Log filter PR](https://github.com/paradigmxyz/reth/issues/16999) |
 
 ## M0 - Simplified on-chain log index
-
-| Execution client | Status |
-| - | - |
-| Erigon | 🚧 Branch created and added to Kurtosis |
-| Nimbus | 🚧 Branch created and added to Kurtosis |
-| Reth | 🚧 Branch created and added to Kurtosis |
 
 Initially, a partial implementation of [EIP-7745](https://eips.ethereum.org/EIPS/eip-7745) is targeted with certain modifications.
 
