@@ -6,14 +6,14 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | - | - | - | - |
 | C# | [Nethermind](https://github.com/NethermindEth/nethermind/tree/master/src/Nethermind/Nethermind.Serialization.Ssz) | _open_ | |
 | Go | [dynssz](https://github.com/pk910/dynamic-ssz) | _open_ | |
-| Go | Erigon ([1](https://github.com/ledgerwatch/erigon/tree/main/erigon-lib/types/ssz) [2](https://github.com/ledgerwatch/erigon/tree/main/cl/cltypes/solid) [3](https://github.com/ledgerwatch/erigon/tree/main/cl/merkle_tree)) | _open_ | |
+| Go | Erigon ([1](https://github.com/ledgerwatch/erigon/tree/main/erigon-lib/types/ssz) [2](https://github.com/ledgerwatch/erigon/tree/main/cl/cltypes/solid) [3](https://github.com/ledgerwatch/erigon/tree/main/cl/merkle_tree)) | [@DarkLord017](https://github.com/DarkLord017) | |
 | Go | [FastSSZ](https://github.com/prysmaticlabs/fastssz) | _open_ | |
 | Go | [karalabe/ssz](https://github.com/karalabe/ssz) | _open_ | |
 | Go | [methodical-ssz](https://github.com/OffchainLabs/methodical-ssz) | _open_ | |
 | Java | [Teku](https://github.com/Consensys/teku/tree/master/infrastructure/ssz) | _open_ | |
 | Nim | [nim-ssz-serialization](https://github.com/status-im/nim-ssz-serialization) | [@etan-status](https://github.com/etan-status) | M2 |
 | Python | [remerkleable](https://github.com/ethereum/remerkleable) | [@etan-status](https://github.com/etan-status) | M2 |
-| Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | _open_ | |
+| Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | [@18aaddy](https://github.com/18aaddy) | |
 | Rust | [Grandine](https://github.com/grandinetech/grandine/tree/develop/ssz) | _open_ | |
 | TypeScript | [ChainSafe](https://github.com/ChainSafe/ssz) | _open_ | |
 | TypeScript | [micro-eth-signer](https://github.com/paulmillr/micro-eth-signer) | _open_ | |
