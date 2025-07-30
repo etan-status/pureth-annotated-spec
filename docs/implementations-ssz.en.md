@@ -19,14 +19,23 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | TypeScript | [micro-eth-signer](https://github.com/paulmillr/micro-eth-signer) | _open_ | |
 | Zig | [ssz.zig](https://github.com/gballet/ssz.zig) | _open_ | |
 
+## Specs
+
+- [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) defines all [SSZ specifications](https://github.com/ethereum/consensus-specs/blob/master/ssz/simple-serialize.md).
+
+## Tests
+
+- [ethereum/remerkleable](https://github.com/ethereum/remerkleable) contains static tests in [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py).
+- [ethereum/consensus-spec-tests](https://github.com/ethereum/consensus-spec-tests) contains random tests in [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic), generated according to a [format](https://github.com/ethereum/consensus-specs/blob/master/tests/formats/ssz_generic/README.md).
+
 ## M1 - ProgressiveList
 
 [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916) introduces `ProgressiveList[type]` and `ProgressiveBitlist`. The bitlist can be deferred, as [EIP-7745](https://eips.ethereum.org/EIPS/eip-7745) only requires `ProgressiveList[type]` for bytes.
 
 ### Tests
 
-- [ethereum/remerkleable](https://github.com/ethereum/remerkleable) contains static tests in [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py). Look for `ProgressiveList`.
-- [ethereum/consensus-spec-tests](https://github.com/ethereum/consensus-spec-tests) contains random tests in [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic), generated from a [format](https://github.com/ethereum/consensus-specs/blob/master/tests/formats/ssz_generic/README.md) defined in [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs). Look for `basic_progressive_list`, and inside the `containers` category for `ProgressiveTestStruct`.
+- In [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py): Look for `ProgressiveList`.
+- In [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic): Look for `basic_progressive_list`, and for `ProgressiveTestStruct` in the `containers` category.
 
 ## M2 - ProgressiveBitlist
 
@@ -34,8 +43,8 @@ Complete implementation of [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916), 
 
 ### Tests
 
-- Similar as for M1, in [ethereum/remerkleable](https://github.com/ethereum/remerkleable), in [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py), look for `ProgressiveBitlist`.
-- Similar as for M1, in [ethereum/consensus-spec-tests](https://github.com/ethereum/consensus-spec-tests), find new tests in [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic) based on a [format](https://github.com/ethereum/consensus-specs/blob/master/tests/formats/ssz_generic/README.md). Look for `progressive_bitlist`, and inside the `containers` category for `ProgressiveBitsStruct`.
+- In [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py): Look for `ProgressiveBitlist`.
+- In [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic): Look for `progressive_bitlist`, and for `ProgressiveBitsStruct` in the `containers` category.
 
 ## M3 - ProgressiveContainer
 
