@@ -5,7 +5,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | Language | Library | Implementer | Progress |
 | - | - | - | - |
 | C# | [Nethermind](https://github.com/NethermindEth/nethermind/tree/master/src/Nethermind/Nethermind.Serialization.Ssz) | _open_ | |
-| Go | [dynssz](https://github.com/pk910/dynamic-ssz) | _open_ | |
+| Go | [dynssz](https://github.com/pk910/dynamic-ssz) | [@pk910](https://github.com/pk910) | [M1](https://github.com/pk910/dynamic-ssz/pull/17) |
 | Go | Erigon ([1](https://github.com/ledgerwatch/erigon/tree/main/erigon-lib/types/ssz) [2](https://github.com/ledgerwatch/erigon/tree/main/cl/cltypes/solid) [3](https://github.com/ledgerwatch/erigon/tree/main/cl/merkle_tree)) | [@DarkLord017](https://github.com/DarkLord017) | |
 | Go | [FastSSZ](https://github.com/prysmaticlabs/fastssz) | _open_ | |
 | Go | [karalabe/ssz](https://github.com/karalabe/ssz) | _open_ | |
