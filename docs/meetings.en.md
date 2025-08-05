@@ -1,5 +1,21 @@
 # Meeting notes
 
+## 2025-08-05
+
+- Erigon
+    - [@DarkLord017](https://github.com/DarkLord017) made an [EPF proposal](https://github.com/eth-protocol-fellows/cohort-six/pull/214), setup Orbstack and Kurtosis
+- Nimbus
+    - [@vineetpant](https://github.com/vineetpant) learning Nim language, implemented the new data structures relevant for EIP-7745, and focusing on helper functions next. [M0](./implementations-7745.en.md#m0---simplified-on-chain-log-index) as a target looks good
+    - [@RazorClient](https://github.com/RazorClient) made progress on a test suite for SSZ execution blocks, and started implementing SSZ transactions and receipts in Nimbus
+- Reth
+    - [@SkandaBhat](https://github.com/SkandaBhat) made progress on the Reth [log filter implementation]( https://github.com/SkandaBhat/reth/pull/4)
+    - [@18aaddy](https://github.com/18aaddy) is implementing log filter hashing for Reth, also looking into Geth for proof format (note, the format is not final)
+- [@etan-status](https://github.com/etan-status) got EIP-7916 into [SSZ specifications](https://github.com/ethereum/consensus-specs/blob/master/ssz/simple-serialize.md), working on EIP-7495 next to complete the SSZ data types
+    - [@pk910](https://github.com/pk910) (Dora block explorer) implemented progressive types in Go [dynssz](https://github.com/pk910/dynamic-ssz/pull/17). Should `ProgressiveContainer` limit to 256 fields be dropped?
+- [@ShiroObiJohn](https://github.com/ShiroObiJohn) mentioned [ETH Shenzhen conference](https://lu.ma/iqh54330) (~600 attendees, 2 days), with an [Ethereum protocol day](https://lu.ma/toicyty8) side event (co-hosted by Bing from Lodestar)
+    - Proposed to give a Chinese talk about Pureth, or at least translate the available resources to Chinese language
+    - There will be another event in Spring with focus on the business side
+
 ## 2025-07-22
 
 - [@etan-status](https://github.com/etan-status) to set up a page with subtasks for EIP-7745
