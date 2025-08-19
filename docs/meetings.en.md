@@ -1,5 +1,19 @@
 # Meeting notes
 
+## 2025-08-19
+
+- Erigon
+    - No updates
+- Nimbus
+    - [@vineetpant](https://github.com/vineetpant) progressed on log index implementation and also started extending [EELS](https://github.com/ethereum/execution-spec-tests) with unit tests; Logs bloom is not yet updated for M0
+    - [@RazorClient](https://github.com/RazorClient) is adopting SSZ transaction and receipt types in the code base, and adding tests with help of [@advaita-saha](https://github.com/advaita-saha)
+- Reth
+    - [@18aaddy](https://github.com/18aaddy) attended [ETHVietnam](https://www.eth-vietnam.com) (small event with ~16 projects), and working on the log index root hash and tree structure; tests are being based on the [Go implementation](https://github.com/zsfelfoldi/go-ethereum/tree/proof-poc), the EELS tests could possibly also be integrated
+    - [@SkandaBhat](https://github.com/SkandaBhat) added log index as a sync stage to Reth, and updated eth_getLogs to access the log index for acceleration if available
+- [@etan-status](https://github.com/etan-status) integrated the feedback from [@pk910](https://github.com/pk910) into [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495), `ProgressiveContainer` now mixes in a `ProgressiveBitlist` instead of a `Bitvector[256]` to avoid design space limits
+- [@taxmeifyoucan](https://github.com/taxmeifyoucan) asked if a reduced Pureth scope may be integrated into Glamsterdam
+    - [@etan-status](https://github.com/etan-status) mentioned that the SSZ library changes might be small enough to combine with the ePBS headliner, so that SSZ library readiness cannot be an argument against Pureth for H fork anymore
+
 ## 2025-08-05
 
 - Erigon
