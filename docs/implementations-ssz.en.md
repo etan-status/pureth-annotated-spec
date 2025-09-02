@@ -1,6 +1,6 @@
 # Implementations
 
-The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916) / [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) implementation efforts. Note that implementations are not complete, and specifications may still change.
+The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916) / [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) / [EIP-8016](https://eips.ethereum.org/EIPS/eip-8016) implementation efforts. Note that implementations are not complete, and specifications may still change.
 
 | Language | Library | Implementer | Progress |
 | - | - | - | - |
@@ -48,7 +48,7 @@ Complete implementation of [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916), 
 
 ## M3 - ProgressiveContainer
 
-[EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) introduces `ProgressiveContainer` and `CompatibleUnion`. The `ProgressiveContainer` is used by more EIPs, so focus on that one first.
+[EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) introduces `ProgressiveContainer`, which is relevant for [EIP-6404](https://eips.ethereum.org/EIPS/eip-6404) transaction and receipts EIPs.
 
 ### Tests
 
@@ -57,7 +57,7 @@ Complete implementation of [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916), 
 
 ## M4 - CompatibleUnion
 
-Complete implementation of [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495), including `CompatibleUnion`. This unlocks [EIP-6404](https://eips.ethereum.org/EIPS/eip-6404) `Transaction` serialization.
+[EIP-8016](https://eips.ethereum.org/EIPS/eip-8016) introduces `CompatibleUnion`, the final piece to implement all [EIP-7919](https://eips.ethereum.org/EIPS/eip-7919) Pureth components.
 
 ### Tests
 
