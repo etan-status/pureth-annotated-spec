@@ -10,7 +10,7 @@
         - Integrating tests into STEEL pending, structure to be decided together with [@danceratops](https://github.com/danceratopz)
 - Reth
     - [@18aaddy](https://github.com/18aaddy) finished writing the `log_index_hasher` logic, next working on basic unit tests
-- [@etan-status](https://github.com/etan-status) bumped [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) to revert the mix-in back to `ProgerssiveBitlist` for its simplicity, and implemented M3 in Python and Nim. `CompatibleUnion` was split off into [EIP-8016](https://eips.ethereum.org/EIPS/eip-8016), implementations for Python and Nim in progress
+- [@etan-status](https://github.com/etan-status) bumped [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) to revert the mix-in back to `ProgressiveBitlist` for its simplicity, and implemented M3 in Python and Nim. `CompatibleUnion` was split off into [EIP-8016](https://eips.ethereum.org/EIPS/eip-8016), implementations for Python and Nim in progress
     - For testing, Kurtosis config will be updated to have both `eip7745Time` and `eip7807Time` keys (controllable via `eip7745_fork_epoch` / `eip7807_fork_epoch` config keys). Activation order is flexible, can also be both at same time
 - [@taxmeifyoucan](https://github.com/taxmeifyoucan) to check whether [@DarkLord017](https://github.com/DarkLord017) is still on board, did not join last few calls
 
