@@ -1,9 +1,23 @@
 # Meeting notes
 
-## 2025-08-19
+## 2025-09-02
 
 - Erigon
     - No updates
+- Nimbus
+    - [@vineetpant](https://github.com/vineetpant) extended Nimbus `BaseVMState` for stateful log index (no persistence yet) and has Nim unit tests, expects [reaching M0 in 2 weeks](https://hackmd.io/@vineetpant/rkiO4fQ9ll)
+    - [@RazorClient](https://github.com/RazorClient) has completed SSZ `hash_tree_root` for receipts and transactions, and has Nim tests that verify SSZ encoding and hashing against expectations
+        - Integrating tests into STEEL pending, structure to be decided together with [@danceratops](https://github.com/danceratopz)
+- Reth
+    - [@18aaddy](https://github.com/18aaddy) finished writing the `log_index_hasher` logic, next working on basic unit tests
+- [@etan-status](https://github.com/etan-status) bumped [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495) to revert the mix-in back to `ProgerssiveBitlist` for its simplicity, and implemented M3 in Python and Nim. `CompatibleUnion` was split off into [EIP-8016](https://eips.ethereum.org/EIPS/eip-8016), implementations for Python and Nim in progress
+    - For testing, Kurtosis config will be updated to have both `eip7745Time` and `eip7807Time` keys (controllable via `eip7745_fork_epoch` / `eip7807_fork_epoch` config keys). Activation order is flexible, can also be both at same time
+- [@taxmeifyoucan](https://github.com/taxmeifyoucan) to check whether [@DarkLord017](https://github.com/DarkLord017) is still on board, did not join last few calls
+
+## 2025-08-19
+
+- Erigon
+    - [@DarkLord017](https://github.com/DarkLord017) made progress towards M0
 - Nimbus
     - [@vineetpant](https://github.com/vineetpant) progressed on log index implementation and also started extending [EELS](https://github.com/ethereum/execution-spec-tests) with unit tests; Logs bloom is not yet updated for M0
     - [@RazorClient](https://github.com/RazorClient) is adopting SSZ transaction and receipt types in the code base, and adding tests with help of [@advaita-saha](https://github.com/advaita-saha)
