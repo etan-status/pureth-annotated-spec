@@ -139,11 +139,13 @@ participants_matrix:
   cl:
     - cl_type: nimbus
       cl_image: ethpandaops/nimbus-eth2:eip-7745-m0-minimal
+      supernode: true
 
 # global_log_level: debug
 
 network_params:
   fulu_fork_epoch: 1
+  # eip7807_fork_epoch: 2
   eip7745_fork_epoch: 2
   preset: minimal
 
