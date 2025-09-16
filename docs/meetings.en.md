@@ -1,5 +1,24 @@
 # Meeting notes
 
+## 2025-09-16
+
+- Erigon
+    - No updates
+- Nimbus
+    - [@vineetpant](https://github.com/vineetpant) mentioned issues with Kurtosis startup (possibly related to the new `eip7745Time`), and also raised a conflict with the existing RLP log type that's still used in receipts when using STEEL
+        - Renaming the log type that's used for the index could resolve this, so that receipts are kept untouched
+        - [@etan-status](https://github.com/etan-status) will look into the Kurtosis issue
+    - [@RazorClient](https://github.com/RazorClient) is mostly ready, but roots don't match yet between STEEL and Nimbus (including for withdrawals etc). Idea to research SSZ engine API
+        - [@etan-status](https://github.com/etan-status) expressed interest in feedback that could be upstreamed into the specs (inefficiencies, ideas etc). Extending STEEL tests with [@danceratops](https://github.com/danceratopz) would be very valuable for other implementers
+- Reth
+    - [@SkandaBhat](https://github.com/SkandaBhat) raised a [PR for Reth](https://github.com/paradigmxyz/reth/pull/18305) (feedback welcome) with most types in `crates/log-index/common/src/types.rs` that is on par with the Geth functionality. Note that this is only for log query acceleration, it does not come with the consensus changes. Speedup is about 2x, receipts handling slowing it down
+        - Demo video as a resource for other implementers
+        - Sync with [@18aaddy](https://github.com/18aaddy) for feedback regarding proofs
+        - Sync with [@vineetpant](https://github.com/vineetpant) for aligning the implementation
+        - Sync with [@RazorClient](https://github.com/RazorClient) for integration into STEEL tests
+- [@etan-status](https://github.com/etan-status) reported that all [SSZ data types](./implementations-ssz.en.md) are now [fully specced out with tests](https://github.com/ethereum/consensus-specs/blob/master/ssz/simple-serialize.md) and implemented in [Python](https://github.com/ethereum/remerkleable) and [Nim](https://github.com/status-im/nim-ssz-serialization). Started work to rebase ePBS on top of the new SSZ data types to potentially get a first step in as part of [Glamsterdam](https://eips.ethereum.org/EIPS/eip-7773)
+    - [@SkandaBhat](https://github.com/SkandaBhat) offered to try implementing the new SSZ types in [ethereum_ssz](https://github.com/sigp/ethereum_ssz); up through [M3](./implementations-ssz.en.md#m3---progressivecontainer) is needed for [EIP-7495](https://eips.ethereum.org/EIPS/eip-7495), [M4](./implementations-ssz.en.md#m4---compatibleunion) is only needed for [EIP-7807](https://eips.ethereum.org/EIPS/eip-7807)
+
 ## 2025-09-02
 
 - Erigon

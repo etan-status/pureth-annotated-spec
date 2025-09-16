@@ -13,7 +13,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | Java | [Teku](https://github.com/Consensys/teku/tree/master/infrastructure/ssz) | _open_ | |
 | Nim | [nim-ssz-serialization](https://github.com/status-im/nim-ssz-serialization) | [@etan-status](https://github.com/etan-status) | M4 |
 | Python | [remerkleable](https://github.com/ethereum/remerkleable) | [@etan-status](https://github.com/etan-status) | M4 |
-| Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | [@18aaddy](https://github.com/18aaddy) | |
+| Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | [@SkandaBhat](https://github.com/SkandaBhat) | |
 | Rust | [Grandine](https://github.com/grandinetech/grandine/tree/develop/ssz) | _open_ | |
 | TypeScript | [ChainSafe](https://github.com/ChainSafe/ssz) | [@wemeetagain](https://github.com/wemeetagain) | |
 | TypeScript | [micro-eth-signer](https://github.com/paulmillr/micro-eth-signer) | _open_ | |
