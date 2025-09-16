@@ -8,7 +8,7 @@
     - [@vineetpant](https://github.com/vineetpant) mentioned issues with Kurtosis startup (possibly related to the new `eip7745Time`), and also raised a conflict with the existing RLP log type that's still used in receipts when using STEEL
         - Renaming the log type that's used for the index could resolve this, so that receipts are kept untouched
         - [@etan-status](https://github.com/etan-status) will look into the Kurtosis issue
-    - [@RazorClient](https://github.com/RazorClient) is mostly ready, but roots don't match yet between STEEL and Nimbus (including for withdrawals etc). Idea to research SSZ engine API
+    - [@RazorClient](https://github.com/RazorClient) is mostly ready, but roots don't match yet between STEEL and Nimbus (including for withdrawals etc); some test cases cannot get the root in Nim. Idea to research SSZ engine API
         - [@etan-status](https://github.com/etan-status) expressed interest in feedback that could be upstreamed into the specs (inefficiencies, ideas etc). Extending STEEL tests with [@danceratops](https://github.com/danceratopz) would be very valuable for other implementers
 - Reth
     - [@SkandaBhat](https://github.com/SkandaBhat) raised a [PR for Reth](https://github.com/paradigmxyz/reth/pull/18305) (feedback welcome) with most types in `crates/log-index/common/src/types.rs` that is on par with the Geth functionality. Note that this is only for log query acceleration, it does not come with the consensus changes. Speedup is about 2x, receipts handling slowing it down
