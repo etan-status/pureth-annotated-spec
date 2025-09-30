@@ -1,5 +1,14 @@
 # Meeting notes
 
+## 2025-09-30
+
+- Nimbus
+    - [@vineetpant](https://github.com/vineetpant) added support for the EIP-7745 fork, and tested locally as the Kurtosis config issue persisted
+    - [@RazorClient](https://github.com/RazorClient) attended [ETHGlobal New Delhi](https://ethglobal.com/events/newdelhi), and is on the final portion of SSZ block implementation (remaining challenges: [SetCode](https://eips.ethereum.org/EIPS/eip-7702) authorizations, some u64 / u256 mismatches, and a few SSZ root mismatches). Regarding testing, reached out to [@danceratops](https://github.com/danceratopz) for contributing to STEEL
+- Reth
+    - [@18aaddy](https://github.com/18aaddy) attended [ETHGlobal New Delhi](https://ethglobal.com/events/newdelhi), synced up with [@SkandaBhat](https://github.com/SkandaBhat), and continued with the EIP-7745 work. Testing is based on comparing against Geth's log root hash; debugging the tree structure is not easy
+- [@etan-status](https://github.com/etan-status) figured out why Kurtosis is failing and updated the [Kurtosis config](./implementations-7745.en.md#testing) (the `el_image` has to be prefixed with the GitHub account name, if a forked repo is used as source). Continued rebasing ePBS on top of [EIP-7688](https://eips.ethereum.org/EIPS/eip-7688) to at least get [SSZ ProgressiveList](https://eips.ethereum.org/EIPS/eip-7916) from the [Pureth](https://ethereum.org/EIPS/eip-7919) scope into consensus. Also explained the [process of proposing an EIP for inclusion](https://ethereum-magicians.org/t/eip-7773-glamsterdam-network-upgrade-meta-thread/21195)
+
 ## 2025-09-16
 
 - Erigon
