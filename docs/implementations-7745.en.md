@@ -130,12 +130,12 @@ Save the following config as `~/Downloads/network_params_pureth.yaml`. Note that
 ```yaml
 participants_matrix:
   el:
-    - el_type: erigon
-      el_image: ethpandaops/erigon:eip-7745-m0
+    # - el_type: erigon
+    #   el_image: ethpandaops/erigon:DarkLord017-eip-7745-m0
     - el_type: nimbus
       el_image: ethpandaops/nimbus-eth1:vineetpant-eip-7745-m0
     - el_type: reth
-      el_image: ethpandaops/reth:eip-7745-m0
+      el_image: ethpandaops/reth:18aaddy-eip-7745-m0
   cl:
     - cl_type: nimbus
       cl_image: ethpandaops/nimbus-eth2:eip-7745-m0-minimal
