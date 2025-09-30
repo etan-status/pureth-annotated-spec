@@ -5,7 +5,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | Language | Library | Implementer | Progress |
 | - | - | - | - |
 | C# | [Nethermind](https://github.com/NethermindEth/nethermind/tree/master/src/Nethermind/Nethermind.Serialization.Ssz) | _open_ | |
-| Go | [dynssz](https://github.com/pk910/dynamic-ssz) | [@pk910](https://github.com/pk910) | M4 (tested through M2) |
+| Go | [dynssz](https://github.com/pk910/dynamic-ssz) | [@pk910](https://github.com/pk910) | M4 |
 | Go | Erigon ([1](https://github.com/ledgerwatch/erigon/tree/main/erigon-lib/types/ssz) [2](https://github.com/ledgerwatch/erigon/tree/main/cl/cltypes/solid) [3](https://github.com/ledgerwatch/erigon/tree/main/cl/merkle_tree)) | [@DarkLord017](https://github.com/DarkLord017) | |
 | Go | [FastSSZ](https://github.com/prysmaticlabs/fastssz) | _open_ | |
 | Go | [karalabe/ssz](https://github.com/karalabe/ssz) | _open_ | |
@@ -15,7 +15,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | Python | [remerkleable](https://github.com/ethereum/remerkleable) | [@etan-status](https://github.com/etan-status) | M4 |
 | Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | [@SkandaBhat](https://github.com/SkandaBhat) | |
 | Rust | [Grandine](https://github.com/grandinetech/grandine/tree/develop/ssz) | _open_ | |
-| TypeScript | [ChainSafe](https://github.com/ChainSafe/ssz) | [@wemeetagain](https://github.com/wemeetagain) | |
+| TypeScript | [ChainSafe](https://github.com/ChainSafe/ssz) | [@guha-rahul](https://github.com/guha-rahul) | |
 | TypeScript | [micro-eth-signer](https://github.com/paulmillr/micro-eth-signer) | _open_ | |
 | Zig | [ssz.zig](https://github.com/gballet/ssz.zig) | _open_ | |
 
