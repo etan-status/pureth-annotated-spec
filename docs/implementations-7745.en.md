@@ -133,7 +133,7 @@ participants_matrix:
     - el_type: erigon
       el_image: ethpandaops/erigon:eip-7745-m0
     - el_type: nimbus
-      el_image: ethpandaops/nimbus-eth1:eip-7745-m0
+      el_image: ethpandaops/nimbus-eth1:vineetpant-eip-7745-m0
     - el_type: reth
       el_image: ethpandaops/reth:eip-7745-m0
   cl:
