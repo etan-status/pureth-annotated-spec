@@ -15,8 +15,8 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | Python | [remerkleable](https://github.com/ethereum/remerkleable) | [@etan-status](https://github.com/etan-status) | M4 |
 | Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | [@SkandaBhat](https://github.com/SkandaBhat) | |
 | Rust | [Grandine](https://github.com/grandinetech/grandine/tree/develop/ssz) | _open_ | |
-| TypeScript | [ChainSafe](https://github.com/ChainSafe/ssz) | [@guha-rahul](https://github.com/guha-rahul) | |
 | TypeScript | [micro-eth-signer](https://github.com/paulmillr/micro-eth-signer) | _open_ | |
+| Zig | [ChainSafe](https://github.com/ChainSafe/ssz-z) | [@guha-rahul](https://github.com/guha-rahul) | |
 | Zig | [ssz.zig](https://github.com/gballet/ssz.zig) | _open_ | |
 
 ## Specs
