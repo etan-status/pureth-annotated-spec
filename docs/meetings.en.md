@@ -1,5 +1,11 @@
 # Meeting notes
 
+## 2025-10-07
+
+- Nimbus
+    - [@RazorClient](https://github.com/RazorClient) synced with [@danceratops](https://github.com/danceratopz) regarding tests, suggestion to use [Nimbus t8n tool](https://github.com/status-im/nimbus-eth1/blob/master/tools/t8n/readme.md). Questions regarding best way to implement reorg tests, maybe doable with Hive, a sequence of `newPayload`, `forkchoiceUpdated` + checks should be good enough. As SSZ work is mostly done, proposed to also implement [EIP-7708](https://eips.ethereum.org/EIPS/eip-7708) and [EIP-7799](https://eips.ethereum.org/EIPS/eip-7799), the SSZ branch is best for this, as [EIP-7745](https://eips.ethereum.org/EIPS/eip-7745) is unaffected by them, and is already challenging to do standalone
+    - [@vineetpant](https://github.com/vineetpant) reported core implementation of EIP-7745 is done, wondering about how to test. Discussed either using `eth_getBlockByNumber`, extending t8n tests (but reorgs are challenging), or waiting for Reth to be ready and launching a Kurtosis network that supports both Nimbus and Reth
+
 ## 2025-09-30
 
 - Nimbus
