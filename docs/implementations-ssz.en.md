@@ -61,8 +61,6 @@ Complete implementation of [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916), 
 
 ### Tests
 
-- Implementations and tests are not yet available.
-
 - In [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py): Look for `CompatibleUnion`.
 - In [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic): Look for `compatible_unions`.
 
