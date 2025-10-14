@@ -1,5 +1,14 @@
 # Meeting notes
 
+## 2025-10-14
+
+- Nimbus
+    - [@RazorClient](https://github.com/RazorClient) looked into [EIP-7708 (ETH transfer emits logs)](https://eips.ethereum.org/EIPS/eip-7708) and [EIP-7799 (System logs)](https://eips.ethereum.org/EIPS/eip-7799), there are a couple open questions. [@etan-status](https://github.com/etan-status) made an [add-on PR](https://github.com/ethereum/EIPs/pull/9003/files) that resolves the TBDs (each outer transaction gets logged regardless of value, as well as each internal non-zero value transfer). For the SSZ work, the extra receipt fields needed have been added to [`BaseVMState`](https://github.com/status-im/nimbus-eth1/blob/008e488fd73b3a42b8d7a638c07fd37391484426/execution_chain/evm/types.nim#L42). Further, a question was raised whether `eth_getProofs` should be looked into; [@etan-status](https://github.com/etan-status) thinks it's too early for that and would distract from higher priority items
+    - [@vineetpant](https://github.com/vineetpant) is looking to consume the test vectors and check fork activation with Kurtosis devnet, [@RazorClient](https://github.com/RazorClient) will assist
+- Reth
+    - [@18aaddy](https://github.com/18aaddy) continued testing low level functions for the log index and is working on computing the log index root hash. Tests are an open question, [@RazorClient](https://github.com/RazorClient) offered to sync with [@vineetpant](https://github.com/vineetpant) and pointed to the test vectors in the [Go implementation](https://github.com/zsfelfoldi/eip-7745); however, those are based on an older [`ProgressiveList`](https://eips.ethereum.org/EIPS/eip-7916) implementation and may have a different root hash
+- [@etan-status](https://github.com/etan-status) [rebased ePBS on top](https://github.com/ethereum/consensus-specs/pull/4630) of [EIP-7688](https://eips.ethereum.org/EIPS/eip-7688), proposed [inclusion into Glamsterdam](https://github.com/ethereum/pm/issues/1754#issuecomment-3374088024), updated the [Forkcast](https://forkcast.org/upgrade/glamsterdam/#eip-7688) summary, and reached out to Lido, Rocketpool, and Diva for visibility. Further, [@etan-status](https://github.com/etan-status) looks into cleaning up [EIP-6404](https://eips.ethereum.org/EIPS/eip-6404) and [EIP-6466](https://eips.ethereum.org/EIPS/eip-6466) to propose as a minimal scope for Glamsterdam instead of full Pureth (which did not make the headliner selection, so was declined for Glamsterdam)
+
 ## 2025-10-07
 
 - Nimbus
