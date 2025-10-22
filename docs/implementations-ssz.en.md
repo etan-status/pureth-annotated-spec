@@ -26,7 +26,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 ## Tests
 
 - [ethereum/remerkleable](https://github.com/ethereum/remerkleable) contains static tests in [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py).
-- [ethereum/consensus-spec-tests](https://github.com/ethereum/consensus-spec-tests) contains random tests in [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic), generated according to a [format](https://github.com/ethereum/consensus-specs/blob/master/tests/formats/ssz_generic/README.md).
+- [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs/releases) releases contain random tests in `tests/general/phase0/ssz_generic`, generated according to a [format](https://github.com/ethereum/consensus-specs/blob/master/tests/formats/ssz_generic/README.md).
 
 ## M1 - ProgressiveList
 
@@ -35,7 +35,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 ### Tests
 
 - In [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py): Look for `ProgressiveList`.
-- In [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic): Look for `basic_progressive_list`, and for `ProgressiveTestStruct` in the `containers` category.
+- In [`tests/general/phase0/ssz_generic`](https://github.com/ethereum/consensus-specs/releases): Look for `basic_progressive_list`, and for `ProgressiveTestStruct` in the `containers` category.
 
 ## M2 - ProgressiveBitlist
 
@@ -44,7 +44,7 @@ Complete implementation of [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916), 
 ### Tests
 
 - In [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py): Look for `ProgressiveBitlist`.
-- In [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic): Look for `progressive_bitlist`, and for `ProgressiveBitsStruct` in the `containers` category.
+- In [`tests/general/phase0/ssz_generic`](https://github.com/ethereum/consensus-specs/releases): Look for `progressive_bitlist`, and for `ProgressiveBitsStruct` in the `containers` category.
 
 ## M3 - ProgressiveContainer
 
@@ -53,7 +53,7 @@ Complete implementation of [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916), 
 ### Tests
 
 - In [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py): Look for `ProgressiveContainer`.
-- In [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic): Look for `progressive_containers`.
+- In [`tests/general/phase0/ssz_generic`](https://github.com/ethereum/consensus-specs/releases): Look for `progressive_containers`.
 
 ## M4 - CompatibleUnion
 
@@ -62,7 +62,7 @@ Complete implementation of [EIP-7916](https://eips.ethereum.org/EIPS/eip-7916), 
 ### Tests
 
 - In [test_impl.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_impl.py) and [test_typing.py](https://github.com/ethereum/remerkleable/blob/master/remerkleable/test_typing.py): Look for `CompatibleUnion`.
-- In [ssz_generic](https://github.com/ethereum/consensus-spec-tests/tree/master/tests/general/phase0/ssz_generic): Look for `compatible_unions`.
+- In [`tests/general/phase0/ssz_generic`](https://github.com/ethereum/consensus-specs/releases): Look for `compatible_unions`.
 
 ## M5 - Optimizations
 
