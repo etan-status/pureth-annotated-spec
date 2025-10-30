@@ -1,5 +1,12 @@
 # Meeting notes
 
+## 2025-10-30
+
+- Nimbus
+    - [@RazorClient](https://github.com/RazorClient) implemented system logs, required CL changes for the extra field still pending (`EIP7807_FORK_EPOCH` for activation)
+    - [@vineetpant](https://github.com/vineetpant) demoed Kurtosis, there was an error in the activation logic where the log index didn't trigger (Orbstack -> Containers -> `el-...-nimbus` -> Files tab -> `network-metadata/genesis.json` contains the timestamp; `curl '127.0.0.1:<cl-http-port>/eth/v2/beacon/blocks/head' | jq '.data.message.body.execution_payload'` to see the logs bloom)
+- EPF day with presentations on 18 Nov at [Devconnect](https://devconnect.org)!
+
 ## 2025-10-14
 
 - Nimbus
