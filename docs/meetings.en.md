@@ -1,5 +1,13 @@
 # Meeting notes
 
+## 2025-11-04
+
+- Nimbus
+    - [@vineetpant](https://github.com/vineetpant) demoed log index being included in the logsBloom field, and also debug logs from its construction. For demo purpose, recommended a little decoder for the [M0 `LogIndexSummary` structure](./implementations-7745.en.md#activation)
+    - [@RazorClient](https://github.com/RazorClient) progressed on testing. For demo, could show [transaction / receipt proofs](https://github.com/ethereum/EIPs/pull/8884/files), and also focus on use cases for purifiers (e.g., [Helios](https://github.com/a16z/helios), [Nimbus](https://github.com/status-im/nimbus-eth1/tree/master/nimbus_verified_proxy)) and L2s (proving partial transactions)
+- Reth
+    - [@18aaddy](https://github.com/18aaddy) dropped due to other obligations, may revisit later
+
 ## 2025-10-30
 
 - Nimbus
