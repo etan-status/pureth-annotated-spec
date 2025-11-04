@@ -41,3 +41,5 @@ nav:
     - filter-maps.md
     - log-proofs.md
     - implementations-7745.md
+  - Scope proposals:
+    - glamsterdam.md
