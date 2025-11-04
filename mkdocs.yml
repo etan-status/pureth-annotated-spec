@@ -26,9 +26,6 @@ plugins:
           default: true
           name: English
           build: true
-        - locale: zh
-          name: 中文
-          build: true
   - mkdocs_matplotlib
 
 nav:
