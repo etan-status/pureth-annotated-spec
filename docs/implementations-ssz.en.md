@@ -16,7 +16,7 @@ The following table lists current [EIP-7916](https://eips.ethereum.org/EIPS/eip-
 | Rust | [ethereum_ssz](https://github.com/sigp/ethereum_ssz) | [@SkandaBhat](https://github.com/SkandaBhat) | |
 | Rust | [Grandine](https://github.com/grandinetech/grandine/tree/develop/ssz) | _open_ | |
 | TypeScript | [micro-eth-signer](https://github.com/paulmillr/micro-eth-signer) | _open_ | |
-| Zig | [ChainSafe](https://github.com/ChainSafe/ssz-z) | [@guha-rahul](https://github.com/guha-rahul) | |
+| Zig | [ChainSafe](https://github.com/ChainSafe/ssz-z) | [@guha-rahul](https://github.com/guha-rahul) | M4 |
 | Zig | [ssz.zig](https://github.com/gballet/ssz.zig) | _open_ | |
 
 ## Specs
