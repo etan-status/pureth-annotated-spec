@@ -1,0 +1,1325 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../log-proofs/">
+      
+      
+        <link rel="next" href="../glamsterdam/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Implementations - Pureth</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implementations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Pureth" class="md-header__button md-logo" aria-label="Pureth" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pureth
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implementations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/etan-status/pureth-annotated-spec/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  Pureth
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../implementations-ssz/" class="md-tabs__link">
+          
+  
+  
+  SSZ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../event-logs/" class="md-tabs__link">
+          
+  
+  
+  Log reform
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../glamsterdam/" class="md-tabs__link">
+          
+  
+  
+  Scope proposals
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Pureth" class="md-nav__button md-logo" aria-label="Pureth" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pureth
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/etan-status/pureth-annotated-spec/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pureth
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Pureth
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pureth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meetings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Meeting notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSZ
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SSZ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementations-ssz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Log reform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Log reform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event logs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs-bloom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bloom filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-value-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Log value index (EIP-7745)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filter-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filter maps (EIP-7745)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-proofs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proofs (EIP-7745)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Implementations
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementations
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#m0-simplified-on-chain-log-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      M0 - Simplified on-chain log index
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="M0 - Simplified on-chain log index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterrow-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      FilterRow type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logindex-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      LogIndex type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-eips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other EIPs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scope proposals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Scope proposals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glamsterdam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Light clients in Glamsterdam
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Purge EIPs for Bogota headliner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#m0-simplified-on-chain-log-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      M0 - Simplified on-chain log index
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="M0 - Simplified on-chain log index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filterrow-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      FilterRow type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logindex-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      LogIndex type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-eips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other EIPs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/etan-status/pureth-annotated-spec/edit/main/docs/implementations-7745.en.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="implementations">Implementations</h1>
+<p>The following table lists current implementation efforts. Note that implementations are not complete, and specifications may still change.</p>
+<table>
+<thead>
+<tr>
+<th>Execution client</th>
+<th>Implementer</th>
+<th>Assistance</th>
+<th>Progress</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Besu</td>
+<td><em>open</em></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erigon</td>
+<td><a href="https://github.com/DarkLord017">@DarkLord017</a></td>
+<td><a href="https://github.com/Giulio2002">@Giulio2002</a></td>
+<td></td>
+<td><a href="https://github.com/eth-protocol-fellows/cohort-six/pull/214">EPF proposal</a></td>
+</tr>
+<tr>
+<td>Geth</td>
+<td><a href="https://github.com/zsfelfoldi">@zsfelfoldi</a></td>
+<td></td>
+<td></td>
+<td><a href="https://eips.ethereum.org/EIPS/eip-7745">EIP author</a></td>
+</tr>
+<tr>
+<td>Nethermind</td>
+<td><em>open</em></td>
+<td></td>
+<td></td>
+<td><a href="https://github.com/NethermindEth/nethermind/pull/8464">Log filter PR</a> (incompatible design)</td>
+</tr>
+<tr>
+<td>Nimbus</td>
+<td><a href="https://github.com/vineetpant">@vineetpant</a>, <a href="https://github.com/RazorClient">@RazorClient</a></td>
+<td><a href="https://github.com/advaita-saha">@advaita-saha</a></td>
+<td></td>
+<td><a href="https://github.com/eth-protocol-fellows/cohort-six/pull/175">EPF proposal</a></td>
+</tr>
+<tr>
+<td>Reth</td>
+<td><a href="https://github.com/18aaddy">@18aaddy</a>, <a href="https://github.com/SkandaBhat">@SkandaBhat</a></td>
+<td><a href="https://github.com/mattsse">@mattsse</a></td>
+<td></td>
+<td><a href="https://github.com/eth-protocol-fellows/cohort-six/pull/207">EPF proposal</a>, <a href="https://github.com/paradigmxyz/reth/issues/16999">Log filter PR</a></td>
+</tr>
+<tr>
+<td>STEEL</td>
+<td><a href="https://github.com/RazorClient">@RazorClient</a></td>
+<td><a href="https://github.com/danceratopz">@danceratopz</a></td>
+<td></td>
+<td>Test tooling for Hive</td>
+</tr>
+</tbody>
+</table>
+<h2 id="m0-simplified-on-chain-log-index">M0 - Simplified on-chain log index</h2>
+<p>Initially, a partial implementation of <a href="https://eips.ethereum.org/EIPS/eip-7745">EIP-7745</a> is targeted with certain modifications.</p>
+<h3 id="log-type"><code>Log</code> type</h3>
+<p>The <code>Log</code> type is modified to use SSZ <code>ByteList</code> instead of <code>ProgressiveByteList</code>. Rationale: Not all <a href="../implementations-ssz/">SSZ libraries</a> support <a href="https://eips.ethereum.org/EIPS/eip-7916">EIP-7916</a> at this time.</p>
+<div class="highlight"><pre><span></span><code><span class="n">MAX_TOPICS_PER_LOG</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">MAX_LOG_DATA_SIZE</span> <span class="o">=</span> <span class="n">uint64</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">24</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Log</span><span class="p">(</span><span class="n">Container</span><span class="p">):</span>
+    <span class="n">address</span><span class="p">:</span> <span class="n">ExecutionAddress</span>
+    <span class="n">topics</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Bytes32</span><span class="p">,</span> <span class="n">MAX_TOPICS_PER_LOG</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">ByteList</span><span class="p">[</span><span class="n">MAX_LOG_DATA_SIZE</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="filterrow-type"><code>FilterRow</code> type</h3>
+<p>The <code>FilterRow</code> type is modified to use SSZ <code>ByteList</code> instead of <code>ProgressiveByteList</code>. Rationale: Not all <a href="../implementations-ssz/">SSZ libraries</a> support <a href="https://eips.ethereum.org/EIPS/eip-7916">EIP-7916</a> at this time.</p>
+<div class="highlight"><pre><span></span><code><span class="n">MAP_WIDTH</span> <span class="o">=</span> <span class="n">uint64</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">MAPS_PER_EPOCH</span> <span class="o">=</span> <span class="n">uint64</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">MAX_BASE_ROW_LENGTH</span> <span class="o">=</span> <span class="n">uint64</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">type</span> <span class="n">FilterRow</span> <span class="o">=</span> <span class="n">ByteList</span><span class="p">[</span><span class="n">MAX_BASE_ROW_LENGTH</span> <span class="o">*</span> <span class="n">log2</span><span class="p">(</span><span class="n">MAP_WIDTH</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">MAPS_PER_EPOCH</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="logindex-type"><code>LogIndex</code> type</h3>
+<p>The <code>LogIndex</code> type is extended with additional fields for debugging, to be filled when <a href="https://eips.ethereum.org/EIPS/eip-7745#updating-the-log-index">updating the log index</a>. Rationale: Makes it easier to detect inconsistencies across implementations.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LogIndex</span><span class="p">(</span><span class="n">Container</span><span class="p">):</span>
+    <span class="n">epochs</span><span class="p">:</span> <span class="n">Vector</span><span class="p">[</span><span class="n">LogIndexEpoch</span><span class="p">,</span> <span class="n">MAX_EPOCH_HISTORY</span><span class="p">]</span>
+    <span class="n">next_index</span><span class="p">:</span> <span class="n">uint64</span>
+
+    <span class="c1"># Update before incrementing `log_index.next_index`, after</span>
+    <span class="c1"># `block_delimiter_entry` is added to `log_index.epochs[a].log_entries[b]`</span>
+    <span class="n">latest_block_delimiter_index</span><span class="p">:</span> <span class="n">uint64</span>  <span class="c1"># log_index.next_index</span>
+    <span class="n">latest_block_delimiter_root</span><span class="p">:</span> <span class="n">Root</span>     <span class="c1"># block_delimiter_entry.hash_tree_root()</span>
+
+    <span class="c1"># Update before incrementing `log_index.next_index`, after</span>
+    <span class="c1"># `log_entry` is added to `log_index.epochs[a].log_entries[b]`</span>
+    <span class="n">latest_log_entry_index</span><span class="p">:</span> <span class="n">uint64</span>  <span class="c1"># log_index.next_index</span>
+    <span class="n">latest_log_entry_root</span><span class="p">:</span> <span class="n">Root</span>     <span class="c1"># log_entry.hash_tree_root()</span>
+
+    <span class="c1"># Update before incrementing `log_index.next_index`, after</span>
+    <span class="c1"># `row.append` is called inside `add_log_value()`</span>
+    <span class="n">latest_value_index</span><span class="p">:</span> <span class="n">uint32</span>   <span class="c1"># log_index.next_index</span>
+    <span class="n">latest_layer_index</span><span class="p">:</span> <span class="n">uint32</span>   <span class="c1"># layer_index</span>
+    <span class="n">latest_row_index</span><span class="p">:</span> <span class="n">uint32</span>     <span class="c1"># row_index</span>
+    <span class="n">latest_column_index</span><span class="p">:</span> <span class="n">uint32</span>  <span class="c1"># column_index</span>
+    <span class="n">latest_log_value</span><span class="p">:</span> <span class="n">Bytes32</span>    <span class="c1"># log_value, as given to `add_log_value()`, after `sha2()` hash</span>
+    <span class="n">latest_row_root</span><span class="p">:</span> <span class="n">Root</span>        <span class="c1"># row.hash_tree_root()</span>
+</code></pre></div>
+<h3 id="persistence">Persistence</h3>
+<p>Initially, no persistence to disk is expected, and the log index can be kept in memory. All clients are started before genesis and don't need to perform an initial sync. However, reorgs may occur, and the log index may have to be partially rewinded to switch to a different chain head.</p>
+<h3 id="other-eips">Other EIPs</h3>
+<p>At this stage, no other Pureth EIPs should be bundled.</p>
+<h3 id="network-configuration">Network configuration</h3>
+<p>The various genesis config objects are extended with a new timestamp.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>JSON path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>genesis.json</code></td>
+<td><code>.config.eip7745Time</code></td>
+</tr>
+<tr>
+<td><code>chainspec.json</code></td>
+<td><code>.params.eip7745TransitionTimestamp</code></td>
+</tr>
+<tr>
+<td><code>besu.json</code></td>
+<td><code>.config.eip7745Time</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each execution client typically reads only one of these files.</p>
+<h3 id="activation">Activation</h3>
+<p>The log index is initialized from genesis and tracked inside the execution clients. If no timestamp is configured, or if the block timestamp indicates that the configured timestamp has not yet been reached, the log index is still maintained, but the block header stays unchanged.</p>
+<p>For blocks with a timestamp <code>&gt;=</code> the configured timestamp, a <code>LogIndexSummary</code> is derived from the corresponding <code>LogIndex</code>, and the block header's <code>logsBloom</code> field is replaced with <code>ssz.serialize(log_index_summary)</code>, matching the same size as before: 2048 bits (256 bytes). The engine API is unchanged.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">LogIndexSummary</span><span class="p">(</span><span class="n">Container</span><span class="p">):</span>
+    <span class="n">root</span><span class="p">:</span> <span class="n">Root</span>                            <span class="c1"># 0x00 - log_index.hash_tree_root()</span>
+    <span class="n">epochs_root</span><span class="p">:</span> <span class="n">Root</span>                     <span class="c1"># 0x20 - log_index.epochs.hash_tree_root()</span>
+    <span class="n">epoch_0_filter_maps_root</span><span class="p">:</span> <span class="n">Root</span>        <span class="c1"># 0x40 - log_index.epochs[0].filter_maps.hash_tree_root()</span>
+
+    <span class="n">latest_block_delimiter_index</span><span class="p">:</span> <span class="n">uint64</span>  <span class="c1"># 0x60 - log_index.latest_block_delimiter_index</span>
+    <span class="n">latest_block_delimiter_root</span><span class="p">:</span> <span class="n">Root</span>     <span class="c1"># 0x68 - log_index.latest_block_delimiter_root</span>
+    <span class="n">latest_log_entry_index</span><span class="p">:</span> <span class="n">uint64</span>        <span class="c1"># 0x88 - log_index.latest_log_entry_index</span>
+    <span class="n">latest_log_entry_root</span><span class="p">:</span> <span class="n">Root</span>           <span class="c1"># 0x90 - log_index.latest_log_entry_root</span>
+    <span class="n">latest_value_index</span><span class="p">:</span> <span class="n">uint32</span>            <span class="c1"># 0xb0 - log_index.latest_value_index</span>
+    <span class="n">latest_layer_index</span><span class="p">:</span> <span class="n">uint32</span>            <span class="c1"># 0xb4 - log_index.latest_layer_index</span>
+    <span class="n">latest_row_index</span><span class="p">:</span> <span class="n">uint32</span>              <span class="c1"># 0xb8 - log_index.latest_row_index</span>
+    <span class="n">latest_column_index</span><span class="p">:</span> <span class="n">uint32</span>           <span class="c1"># 0xbc - log_index.latest_column_index</span>
+    <span class="n">latest_log_value</span><span class="p">:</span> <span class="n">Bytes32</span>             <span class="c1"># 0xc0 - log_index.latest_log_value</span>
+    <span class="n">latest_row_root</span><span class="p">:</span> <span class="n">Root</span>                 <span class="c1"># 0xe0 - log_index.latest_row_root</span>
+</code></pre></div>
+<h3 id="validation">Validation</h3>
+<p>When processing a block with a timestamp <code>&gt;=</code> the configured timestamp, its <code>logsBloom</code> field has to be compared against the expected value. If it does not match, an error should be logged, indicating both the expected and actual values. The field can be decoded using <code>LogIndexSummary.deserialize()</code> to detect differences more easily.</p>
+<p>Block processing may be triggered by all of <a href="https://github.com/ethereum/execution-apis/blob/main/src/engine/prague.md#engine_newpayloadv4"><code>engine_newPayloadV4</code></a>, <a href="https://github.com/ethereum/execution-apis/blob/main/src/engine/cancun.md#engine_forkchoiceupdatedv3"><code>engine_forkchoiceUpdatedV3</code></a>, and forward syncing tasks, and validation is required regardless of the originating trigger.</p>
+<h3 id="testing">Testing</h3>
+<p>Kurtosis can be used to locally simulate a network with the participating clients. It can be set up by following the <a href="https://docs.kurtosis.com/install">installation instructions</a> and is configured using a <a href="https://github.com/etan-status/ethereum-package?tab=readme-ov-file#configuration">YAML schema</a>.</p>
+<p>Save the following config as <code>~/Downloads/network_params_pureth.yaml</code>. Note that this uses a <a href="https://github.com/etan-status/ethereum-package">fork</a> of <a href="https://github.com/ethpandaops/ethereum-package">ethpandaops/ethereum-package</a> to enable EIP-7745 testing.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">participants_matrix</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">el</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># - el_type: erigon</span>
+<span class="w">    </span><span class="c1">#   el_image: ethpandaops/erigon:DarkLord017-eip-7745-m0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">el_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nimbus</span>
+<span class="w">      </span><span class="nt">el_image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethpandaops/nimbus-eth1:vineetpant-eip-7745-m0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">el_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reth</span>
+<span class="w">      </span><span class="nt">el_image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethpandaops/reth:18aaddy-eip-7745-m0</span>
+<span class="w">  </span><span class="nt">cl</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cl_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nimbus</span>
+<span class="w">      </span><span class="nt">cl_image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethpandaops/nimbus-eth2:eip-7745-m0-minimal</span>
+<span class="w">      </span><span class="nt">supernode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># global_log_level: debug</span>
+
+<span class="nt">network_params</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">fulu_fork_epoch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="c1"># eip7807_fork_epoch: 2</span>
+<span class="w">  </span><span class="nt">eip7745_fork_epoch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">preset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">minimal</span>
+
+<span class="nt">additional_services</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spamoor</span>
+
+<span class="nt">spamoor_params</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">spammers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">scenario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">erctx</span>
+<span class="w">      </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">throughput</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+</code></pre></div>
+<p>To interact with the network, first start <a href="https://orbstack.dev">Orbstack</a>, and then use the following commands. <a href="https://docker.com">Docker</a> has a <a href="https://github.com/ethpandaops/ethereum-package/issues/1127">known issue</a> with Erigon, if the network fails to start up, exit Docker and start Orbstack, then try again.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stop</td>
+<td><code>kurtosis enclave rm pureth --force</code></td>
+</tr>
+<tr>
+<td>Start</td>
+<td><code>kurtosis run --enclave pureth --image-download always github.com/etan-status/ethereum-package "$(cat ~/Downloads/network_params_pureth.yaml)"</code></td>
+</tr>
+<tr>
+<td>Ports</td>
+<td><code>kurtosis enclave inspect pureth</code></td>
+</tr>
+<tr>
+<td>Logs</td>
+<td><code>kurtosis service logs pureth -n 999999 -f</code></td>
+</tr>
+</tbody>
+</table>
+<p>To test the RPC, use <code>kurtosis enclave inspect pureth</code> to find the real port to which the <code>rpc</code> / <code>ws-rpc</code> port (8545) is mapped, e.g., if it says <code>ws-rpc: 8545/tcp -&gt; 127.0.0.1:60147</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="err">curl</span><span class="w"> </span><span class="err">'</span><span class="mf">127.0.0.1</span><span class="p">:</span><span class="mi">60147</span><span class="err">'</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="mi">-</span><span class="err">X</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="mi">-</span><span class="err">H</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="mi">--</span><span class="err">da</span><span class="kc">ta</span><span class="w"> </span><span class="err">@</span><span class="mi">-</span><span class="w"> </span><span class="err">&lt;&lt;EOF</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">jq</span><span class="w"> </span><span class="err">.</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth_getBlockByNumber"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"latest"</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="err">EOF</span>
+</code></pre></div>
+<p>To trigger a new build, join <a href="https://discord.gg/aaGHsUaBQB">Ethereum R&amp;D Discord</a>, and use one of the following slash commands in any of the channels. The build takes several minutes, progress can be monitored on <a href="https://github.com/ethpandaops/eth-client-docker-image-builder/actions">ethpandaops/eth-client-docker-image-builder</a>. After the build completes successfully, Kurtosis will automatically use the latest image on subsequent starts.</p>
+<table>
+<thead>
+<tr>
+<th>Execution client</th>
+<th>Build command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Erigon</td>
+<td><code>/build client-el docker_tag:eip-7745-m0 client:Erigon repository:DarkLord017/erigon ref:filtermaps</code></td>
+</tr>
+<tr>
+<td>Nimbus</td>
+<td><code>/build client-el docker_tag:eip-7745-m0 client:NimbusEL repository:vineetpant/nimbus-eth1 ref:eip-7745-log-value-index</code></td>
+</tr>
+<tr>
+<td>Reth</td>
+<td><code>/build client-el docker_tag:eip-7745-m0 client:Reth repository:18aaddy/reth ref:feat/2d-logs-filter</code></td>
+</tr>
+</tbody>
+</table>
+<p>Please ensure that the branches are regularly rebased on top of the latest stable client release to keep the diff to the upstream project minimal.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "navigation.expand", "navigation.tabs", "navigation.top"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../javascripts/mathjax-config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

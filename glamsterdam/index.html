@@ -1,0 +1,1047 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../implementations-7745/">
+      
+      
+        <link rel="next" href="../heka/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Light clients in Glamsterdam - Pureth</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#light-clients-in-glamsterdam" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Pureth" class="md-header__button md-logo" aria-label="Pureth" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pureth
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Light clients in Glamsterdam
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/etan-status/pureth-annotated-spec/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  Pureth
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../implementations-ssz/" class="md-tabs__link">
+          
+  
+  
+  SSZ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../event-logs/" class="md-tabs__link">
+          
+  
+  
+  Log reform
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Scope proposals
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Pureth" class="md-nav__button md-logo" aria-label="Pureth" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pureth
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/etan-status/pureth-annotated-spec/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pureth
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Pureth
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pureth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meetings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Meeting notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSZ
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SSZ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementations-ssz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Log reform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Log reform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event logs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs-bloom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bloom filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-value-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Log value index (EIP-7745)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filter-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Filter maps (EIP-7745)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-proofs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proofs (EIP-7745)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementations-7745/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scope proposals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Scope proposals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Light clients in Glamsterdam
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Light clients in Glamsterdam
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glamsterdam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glamsterdam
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Purge EIPs for Bogota headliner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Execution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#glamsterdam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glamsterdam
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/etan-status/pureth-annotated-spec/edit/main/docs/glamsterdam.en.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="light-clients-in-glamsterdam">Light clients in Glamsterdam</h1>
+<p>In favor for Glamsterdam:</p>
+<ul>
+<li><a href="https://forkcast.org/upgrade/glamsterdam#eip-7688">EIP-7688: Forward compatible consensus data structures (CL)</a></li>
+<li>Production-grade SSZ libraries (EL)</li>
+</ul>
+<p>Acceptable in Glamsterdam (but also okay in H*):</p>
+<ul>
+<li><a href="https://forkcast.org/upgrade/glamsterdam#eip-2926">EIP-2926: Chunk-Based Code Merkleization (EL)</a></li>
+<li><a href="https://forkcast.org/upgrade/glamsterdam#eip-6404">EIP-6404: SSZ transactions (EL)</a></li>
+<li><a href="https://forkcast.org/upgrade/glamsterdam#eip-6466">EIP-6466: SSZ receipts (EL)</a></li>
+<li><a href="https://forkcast.org/upgrade/glamsterdam#eip-7668">EIP-7668: Remove bloom filters (EL)</a></li>
+</ul>
+<p>Defer to H* (see below for rationale):</p>
+<ul>
+<li><a href="https://forkcast.org/upgrade/glamsterdam#eip-7708">EIP-7708: ETH transfers emit a log (EL)</a></li>
+<li><a href="https://forkcast.org/upgrade/glamsterdam/#eip-7745">EIP-7745: Trustless log index (EL)</a></li>
+<li><a href="https://forkcast.org/upgrade/glamsterdam#eip-7919">EIP-7919: Pureth - Provable RPC responses (EL)</a></li>
+</ul>
+<h2 id="execution">Execution</h2>
+<p>Wallets and dApps access Ethereum data using <a href="https://ethereum.org/developers/docs/apis/json-rpc">JSON-RPC</a>. While <a href="https://github.com/a16z/helios">Helios</a> and <a href="https://github.com/status-im/nimbus-eth1/tree/master/nimbus_verified_proxy">Nimbus</a> enable trust-minimized access to <em>current</em> account data (ETH and token balances, <code>eth_call</code>, <code>eth_estimateGas</code> and so on), historical data cannot be fetched reliably and efficiently. This is problematic, as trusted infrastructure can be <a href="https://status.alchemy.com/incidents/w9mk7r3d1989">misconfigured</a>, <a href="https://status.infura.io/incidents/pwgyw2552rwk">unavailable</a>, <a href="https://decrypt.co/94315/ethereum-infura-cuts-off-users-separatist-areas-ukraine-accidentally-blocks-venezuela">region-locked</a>, or have <a href="https://dexinsider.com/metamask-to-start-logging-user-ip-ethereum-wallet-addresses-with-this-new-policy">questionable default privacy</a>. Invalid data, e.g., due to <a href="https://xcancel.com/URozmej/status/1968238473766478163">inconsistent responses</a> or due to a hack, can also lead to <a href="https://xcancel.com/hosseeb/status/1894769440669204780">UI manipulation</a>.</p>
+<p>Even when running a personal full-node, JSON-RPC does not provide a complete picture. Any balance may potentially increase as a side-effect of a <a href="https://github.com/wolflo/evm-opcodes/blob/main/gas.md#ab-selfdestruct"><code>SELFDESTRUCT</code></a> opcode in an arbitrary transaction, without emitting any logs. To support certain smart-contract based wallets using that mechanism, exchanges thus have to rely on trusted indexing infrastructure to <a href="https://ethereum-magicians.org/t/eip-7708-eth-transfers-emit-a-log/20034/49">trace every single transaction</a> for potential side effects and credit user deposits in a timely manner.</p>
+<p>It is essential for good user experience that a basic wallet can be implemented that:</p>
+<ul>
+<li>Only trusts infrastructure for availability, but not for correctness</li>
+<li>Has interactive latency even when using a privacy-preserving link</li>
+<li>Contains the complete account history (completeness proof)</li>
+<li>Uses no external trusted indexers</li>
+</ul>
+<h3 id="glamsterdam">Glamsterdam</h3>
+<p>The following roadmap is proposed for Glamsterdam:</p>
+<ol>
+<li>
+<p>Implement SSZ libraries (<a href="https://eips.ethereum.org/EIPS/eip-7916">EIP-7916</a>, <a href="https://eips.ethereum.org/EIPS/eip-7495">EIP-7495</a>, <a href="https://eips.ethereum.org/EIPS/eip-8016">EIP-8016</a>, <a href="https://github.com/ethereum/consensus-specs/blob/master/ssz/simple-serialize.md">Specs</a>, <a href="https://pureth.guide/implementations-ssz/">Implementations</a>)</p>
+<p>SSZ is easy to implement, natively supports proofs of partial data (tree hashes), offers forward compatibility, and is battle-tested in the beacon chain across the years. No more MPT / RLP should be added; SSZ <a href="https://vitalik.eth.limo/general/2024/10/26/futures5.html">"is significantly better in many ways"</a>. Exhaustive tests are available, implementations can be cross-checked. The proposed scope for Glamsterdam only involves <em>hashing</em> of simple objects; no serialization, no large nested objects.</p>
+</li>
+<li>
+<p>Use SSZ for <em>hashing</em> transactions / receipts (<a href="https://eips.ethereum.org/EIPS/eip-6404">EIP-6404</a>, <a href="https://eips.ethereum.org/EIPS/eip-6466">EIP-6466</a>, <a href="https://github.com/ethereum/EIPs/pull/8884/files">RPC add-on</a>, <a href="https://github.com/RazorClient/nimbus-eth1/tree/Pureth-Upstream">EPF prototype</a>)</p>
+<p>On-chain transactions / receipts do not contain all the information from JSON-RPC. Notably, the RPC txhash is not on-chain, it cannot be proven to be included in a transactions-root. <code>from</code>, <code>contractAddress</code>, <code>authority</code>, <code>logIndex</code>, <code>logsBloom</code> and <code>gasUsed</code> are also inefficient to prove and require downloading extra data. Certain L2s (e.g., <a href="https://github.com/ethereum/pm/issues/982#issuecomment-2023685073">Optimism</a>, Offchain Labs) would benefit from proving partial transactions. Web3 purifiers (e.g., <a href="https://github.com/a16z/helios">Helios</a>, <a href="https://github.com/status-im/nimbus-eth1/tree/master/nimbus_verified_proxy">Nimbus</a>) would benefit from general provability. If also selected, <a href="https://eips.ethereum.org/EIPS/eip-8011">EIP-8011</a>, <a href="https://eips.ethereum.org/EIPS/eip-8053">EIP-8053</a>, and <a href="https://eips.ethereum.org/EIPS/eip-8059">EIP-8059</a> should be aligned with the SSZ gas types.</p>
+</li>
+<li>
+<p>Deprecating Bloom filters (<a href="https://eips.ethereum.org/EIPS/eip-7668">EIP-7668</a>)</p>
+<p>The <a href="../logs-bloom/">log Bloom filters</a> have a very high false positive rate and are unreliable for practical use. SSZ receipts no longer contain Bloom filter. In the block header, they could be deprecated in a backwards-compatible way by replacing the field with an all-1's value, effectively raising the false positive rate to 100%.</p>
+</li>
+<li>
+<p>Chunk based code (<a href="https://eips.ethereum.org/EIPS/eip-2926">EIP-2926</a>)</p>
+<p>Hashing code as a tree would be in line with the proposed change for transactions / receipts, and likely shares some maintenance burden for buidlers consuming Ethereum data in a verifying manner. <a href="https://eips.ethereum.org/EIPS/eip-7919"><code>ProgressiveByteList</code></a> should be considered as an alternative to the current MPT based proposal.</p>
+</li>
+</ol>
+<h3 id="future">Future</h3>
+<p>These EIPs need more time to design and are aimed at readiness for a fork <em>after</em> Glamsterdam.</p>
+<ol>
+<li>
+<p>ETH transfer logs (<a href="https://eips.ethereum.org/EIPS/eip-7708">EIP-7708</a>, <a href="https://github.com/ethereum/EIPs/pull/9003/files">add-on</a>, <a href="https://eips.ethereum.org/EIPS/eip-7799">EIP-7799</a>, <a href="https://eips.ethereum.org/EIPS/eip-6465">EIP-6465</a>, <a href="https://github.com/RazorClient/nimbus-eth1/tree/Pureth-Upstream">EPF prototype</a>)</p>
+<p>Ensuring that the ETH balance is <em>exactly</em> the difference of all inputs minus all outputs is essential for reliable accounting, and removes the requirement for external indexers for basic wallet and dApp usecases. This should cover all initiated transactions, all inner non-zero value transfers, all fee payments (base + priority have different recipients!), beacon chain operations, as well as original genesis balances. How exactly this is done needs more discussion. <em>Only</em> doing <a href="https://eips.ethereum.org/EIPS/eip-7708">EIP-7708</a> is insufficient to remove external indexers as certain ETH balance changes are still not covered.</p>
+</li>
+<li>
+<p>SSZ execution blocks (<a href="https://eips.ethereum.org/EIPS/eip-7807">EIP-7807</a>, <a href="https://github.com/RazorClient/nimbus-eth1/tree/Pureth-Upstream">EPF prototype</a>)</p>
+<p>Completing the transition to SSZ harmonizes the serialization across both consensus and execution layers, and provides a clear path to a binary engine API, which will become important for scaling.</p>
+</li>
+<li>
+<p>SSZ <em>serialization</em> based networking</p>
+<p>By now everything is hashed with SSZ, and we should transition all networking, databases, RPCs etc to use SSZ serialization as well. This can happen side by side to the existing JSON-RPC to be backwards compatible, i.e., new verifying clients use SSZ, existing non-verifying clients continue to use JSON and don't break.</p>
+</li>
+<li>
+<p>Native SSZ transactions (<a href="https://eips.ethereum.org/EIPS/eip-6493">EIP-6493</a>)</p>
+<p>Any future transaction types (e.g., <a href="https://eips.ethereum.org/EIPS/eip-7793">EIP-7793</a>, <a href="https://eips.ethereum.org/EIPS/eip-7932">EIP-7932</a>, <a href="https://eips.ethereum.org/EIPS/eip-8030">EIP-8030</a>) should be based on native SSZ to reduce processing overhead for computing the signing root. Using native SSZ could be encouraged by providing a gas fee discount in a backwards compatible way, avoiding legacy transactions getting more expensive than commonly assumed 21k gas.</p>
+</li>
+<li>
+<p>Log index (<a href="https://eips.ethereum.org/EIPS/eip-7745">EIP-7745</a>, <a href="https://eips.ethereum.org/EIPS/eip-7792">EIP-7792</a>, <a href="../event-logs/">Guide</a>, <a href="https://github.com/vineetpant/nimbus-eth1/tree/eip-7745-log-value-index">EPF prototype</a>, <a href="https://github.com/zsfelfoldi/go-ethereum/tree/proof-poc">Geth proofs</a>, <a href="https://github.com/zsfelfoldi/eip-7745">Geth database</a>, <a href="https://github.com/paradigmxyz/reth/pull/18305">Reth database</a>)</p>
+<p>A structure is needed to query <code>eth_getLogs</code> efficiently, and to prove correctness and completeness, i.e., no results were withheld. There are multiple distribution approaches for the log index, either enshrining an index on-chain, or distributing in an external zk based system. While the current log index proposal has well-thought-through concepts and solves a real need for any wallet or dApp, it is quite tough to implement, the syncing mechanism is still undefined, and the SSZ usage is partially non-standard. The proof format could also benefit from more validation, making this something more fitted as an individual headliner.</p>
+</li>
+</ol>
+<h2 id="consensus">Consensus</h2>
+<p>On the consensus side, light clients would benefit from these in Glamsterdam:</p>
+<ol>
+<li>
+<p>Forward compatible data structures (<a href="https://eips.ethereum.org/EIPS/eip-7688">EIP-7688</a>, <a href="https://github.com/ethereum/consensus-specs/pull/4630">Spec</a>)</p>
+<p>This reduces the maintenance churn (involving security councils) for builders that consume beacon data in their smart contracts, and is mostly benefiting staking pools (e.g., <a href="https://xcancel.com/KaneWallmann/status/1816729724145795258">Rocket Pool</a>, <a href="https://github.com/ethereum/pm/issues/1754#issuecomment-3409601784">Diva</a>, <a href="https://xcancel.com/d_gusakov/status/1901976368084070780">Lido</a>). Last proposed to discuss on <a href="https://github.com/ethereum/pm/issues/1754#issuecomment-3374088024">ACDC</a>. There are a few cleanup unlocks that should also be considered, e.g., <a href="https://eips.ethereum.org/EIPS/eip-8015">EIP-8015</a> removes legacy fields from the CL state.</p>
+</li>
+<li>
+<p>Decentralized checkpoint sync (<a href="https://hackmd.io/@etan-status/electra-lc">Idea</a>, <a href="https://github.com/etan-status/consensus-specs/commit/lc-snapsync#diff-aa2f5c9997dc39e643314490575e8993f91669f66cf24203b3cb670311a45e47">Notes</a>, <a href="https://github.com/status-im/nimbus-eth2/commit/b6cee3d046f0660eb0cc79e7e276951f8fef144c">Scratchpad</a>)</p>
+<p>The default method to set up a new Ethereum node is to point it to a trusted beacon-API to download a finalized checkpoint. In practice, this is frequently not verified. Checkpoint distribution services have also proven unreliable during Goerli and Holesky incidents. The bootstrap mechanism should be updated to download the checkpoint via libp2p. This is still in idea stage, but was already confirmed to be possible without consensus changes; it can be shipped incrementally, similar to the existing light client protocol. Steps involve: (1) Efficient SSZ multiproof implementation, (2) Backfill protocol for historical light client data, (3) Adding a historical trusted root into <a href="https://github.com/eth-clients/mainnet/blob/main/metadata/config.yaml">eth-client configs</a>, (4) Integrate <a href="https://github.com/metacraft-labs/DendrETH/tree/main/docs/long-range-syncing">safe long range syncing</a>, (5) Develop the beacon snap sync protocol.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "navigation.expand", "navigation.tabs", "navigation.top"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../javascripts/mathjax-config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>
